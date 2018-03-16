@@ -88,7 +88,7 @@ Ultimately I searched  using YCrCb 1-channel HOG features plus spatially binned 
 ### Video Implementation
 
 #### 1.Link to the final video output. 
-Here's a [link to my video result](./project_video_output.mp4)
+Here's a [link to my video result](./output_project_video.mp4)
 
 
 #### 2. Implementation of filter for false positives and method for combining overlapping bounding boxes.
