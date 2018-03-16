@@ -78,9 +78,11 @@ image detecting car before applying heatmap:
 
 #### 2. Examples of test images to demonstrate pipeline 
 
-Ultimately I searched on two scales using YCrCb 1-channel HOG features plus spatially binned color and histograms of color in the feature vector, which provided a nice result.  Here are some example images:
+Ultimately I searched  using YCrCb 1-channel HOG features plus spatially binned color and histograms of color in the feature vector, which provided a nice result.  Here are some example images which I choose output of which are shown further below:
 
-![alt text][image4]
+![test11](/test_images/test1.jpg)
+![test41](/test_images/test4.jpg)
+![test61](/test_images/test6.jpg)
 ---
 
 ### Video Implementation
