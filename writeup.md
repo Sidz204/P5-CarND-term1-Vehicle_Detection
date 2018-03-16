@@ -27,23 +27,23 @@ The code for this step is contained in the code cell 2  of the IPython notebook
 
 I started by reading in all the `vehicle` and `non-vehicle` images in lists. And then shuffling the lists to generalize the data.  Here is an example of one of each of the `vehicle` and `non-vehicle` classes:
 
-![alt text][image1]
+Car:
+
+![car](/output_images/car.png)
+
+Non-car:
+
+![car](/output_images/non_car.png)
 
 
 I then explored different color spaces like HSV,HLS,YCrCb, YUV and finally settled with YUV and different `skimage.hog()` parameters (`orientations`, `pixels_per_cell`, and `cells_per_block`).  I grabbed random images from each of the two classes as I applied shuffle and displayed them to get a feel for what the `skimage.hog()` output looks like.
-
-Here is an example using the `YCrCb` color space and HOG parameters of `orientations=12`, `pixels_per_cell=(16, 16)` and `cells_per_block=(2, 2)` and hog channel `0`:
-
-
-![alt text][image2]
-
 
 
 #### 2. Final choice of HOG parameters and color features
 
 I tried various combinations of parameters like colorspace (HSV,HLS,YCrCb, YUV) ; orientations (8,10,11,12,16) ; pixel per cell(8 to 24); cell per block (2) ; hog channel (0,1,'ALL') ; spatial size ((16, 16) and (32,32)) ; histbins (16 to 32)
 
-At first I was getting many false positives especiall in shadow areas. I tried to reduce it using  YUV and YCrCb colorspace. Also, hog channel ('ALL') was not providing good results. Then I settled using hog channel 0. Also , I found out if we use YUV or LUV colorspace, it returns np.sqrt error when using hog channel 1 or 2 or 'ALL' . Then I found out it was due to negative pixel values . It was resolved when I put  transform_sqrt=False of skimage.hog() when using these colorspaces. 
+At first I was getting many false positives especially in shadow areas. I tried to reduce it using  YUV and YCrCb colorspace. Also, hog channel ('ALL') was not providing good results. Then I settled using hog channel 0. Also , I found out if we use YUV or LUV colorspace, it returns np.sqrt error when using hog channel 1 or 2 or 'ALL' . Then I found out it was due to negative pixel values . It was resolved when I put  transform_sqrt=False of skimage.hog() when using these colorspaces. 
 
 Finally I settled with below parameters:
 color_space = 'YUV'
@@ -77,7 +77,7 @@ Ultimately I searched on two scales using YCrCb 1-channel HOG features plus spat
 ### Video Implementation
 
 #### 1.Link to the final video output. 
-Here's a [link to my video result](./project_video.mp4)
+Here's a [link to my video result](./project_video_output.mp4)
 
 
 #### 2. Implementation of filter for false positives and method for combining overlapping bounding boxes.
@@ -86,16 +86,19 @@ I recorded the positions of positive detections in each frame of the video. From
 
 Here's an example result showing the heatmap from a series of frames of video, the result of scipy.ndimage.measurements.label() and the bounding boxes then overlaid on the last frame of video:
 
-### Here are 3 frames and their corresponding heatmaps:
 
-![alt text][image5]
+### Here the resulting bounding boxes are drawn and their corresponding heatmaps:
 
-### Here is the output of `scipy.ndimage.measurements.label()` on the integrated heatmap from all 3 frames:
-![alt text][image6]
+![test1](/output_images/test1_f.png)
+![test1_](/output_images/test1_h.png)
 
-### Here the resulting bounding boxes are drawn onto the last frame in the series:
-![alt text][image7]
 
+![test4](/output_images/test4_f.png)
+![test4_](/output_images/test4_h.png)
+
+
+![test6](/output_images/test6_f.png)
+![test6_](/output_images/test6_h.png)
 
 
 ---
