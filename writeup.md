@@ -36,7 +36,7 @@ Non-car:
 ![car](/output_images/non_car.png)
 
 
-I then explored different color spaces like HSV,HLS,YCrCb, YUV and finally settled with YUV and different `skimage.hog()` parameters (`orientations`, `pixels_per_cell`, and `cells_per_block`).  I grabbed random images from each of the two classes as I applied shuffle and displayed them to get a feel for what the `skimage.hog()` output looks like.
+I then explored different color spaces like HSV,HLS,YCrCb, YUV and finally settled with YCrCb and different `skimage.hog()` parameters (`orientations`, `pixels_per_cell`, and `cells_per_block`).  I grabbed random images from each of the two classes as I applied shuffle and displayed them to get a feel for what the `skimage.hog()` output looks like.
 
 
 #### 2. Final choice of HOG parameters and color features
@@ -46,7 +46,7 @@ I tried various combinations of parameters like colorspace (HSV,HLS,YCrCb, YUV) 
 At first I was getting many false positives especially in shadow areas. I tried to reduce it using  YUV and YCrCb colorspace. Also, hog channel ('ALL') was not providing good results. Then I settled using hog channel 0. Also , I found out if we use YUV or LUV colorspace, it returns np.sqrt error when using hog channel 1 or 2 or 'ALL' . Then I found out it was due to negative pixel values . It was resolved when I put  transform_sqrt=False of skimage.hog() when using these colorspaces. 
 
 Finally I settled with below parameters:
-color_space = 'YUV'
+color_space = 'YCrCb'
 orient = 12  # HOG orientations
 pix_per_cell = 16 # HOG pixels per cell
 cell_per_block = 2 # HOG cells per block
