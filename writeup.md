@@ -65,7 +65,16 @@ I trained a linear SVM for cars and non car images in code cell 15. Using hog, s
 
 I implemented a sliding window search in the lower half of the image from 400 to 650, as cars would be found only in the lower half of the image, not the sky. I implemented the code for it using the helper functions provided in the classroom material. Additionally, I incremented the width and height by 16 px, after each row-wise pass.But that too didnt gave good results. So I applied a windows size of 64px.
 
-![alt text][image3]
+image showing full sliding windows:
+
+![sliding](/output_images/windows.png)
+
+
+image detecting car before applying heatmap:
+
+![sliding](/output_images/before_heat.png)
+
+
 
 #### 2. Examples of test images to demonstrate pipeline 
 
@@ -116,6 +125,6 @@ Problems/issues:
 - Lane change can lead to changes in output. Need to make more robust pipeline.
 
 Improvements:
-A CNN approach or more specifically YOLO architecture can help to make more accurate detections with less data preprocessing and parameter tuning.
+A CNN approach or more specifically YOLO architecture might help to make more accurate detections with less data preprocessing and parameter tuning.
 I am currently working on that.
 
