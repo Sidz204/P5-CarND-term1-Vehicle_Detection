@@ -121,7 +121,7 @@ Here's an example result showing the heatmap from a series of frames of video, t
 Here I'll talk about the approach I took, what techniques I used, what worked and why, where the pipeline might fail and how I might improve it if I were going to pursue this project further.  
 
 Problems/issues:
-- It took a  lot of time for parameter tuning. Still was not able to fully eliminate false positives.
+- It took a  lot of time for parameter tuning. Still was not able to fully eliminate false positives. 2 or 3 false positives still exists.
 - Processing time for the video was more. Tried implementing hog subsampling but it lead to even more increase in processing time.
 - An elevation in road can change the output.
 - Lane change can lead to changes in output. Need to make more robust pipeline.
