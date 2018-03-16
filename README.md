@@ -4,6 +4,6 @@ In this project, main goal is to write a software pipeline to detect vehicles in
 ### Project Files and folders:
 
 - .ipynb file : a python notebook containing project code
-- report.md : project report
+- writeup.md : project report
 - test_images : images used for testing
-- camera_cal : images used for calibration
+- output_images : images that are given as outputs
